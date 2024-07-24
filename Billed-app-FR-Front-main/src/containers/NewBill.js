@@ -22,11 +22,17 @@ export default class NewBill {
     const filePath = e.target.value.split(/\\/g)
     const fileName = filePath[filePath.length-1]
 
+
+
+    //<<<<<<<<< DEBBUGED >>>>>>>>>//
     const fileExtension = fileName.split('.').pop().toLowerCase();
     if (fileExtension !== "jpg" && fileExtension !== "jpeg" && fileExtension !== "png") {
-      alert("Seules les images au format jpg, jpeg ou png sont autorisées.");
+      alert("Seuls les formats jpg, jpeg et png sont autorisés.");
       return;
     }
+    //<<<<<<<<< DEBBUGED >>>>>>>>>//
+
+
 
     const formData = new FormData()
     const email = JSON.parse(this.localStorage.getItem("user")).email

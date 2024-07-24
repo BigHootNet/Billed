@@ -38,7 +38,7 @@ export default class Bills {
             try {
               return {
                 ...doc,
-                date: formatDate(doc.date),
+                date: formatDate(doc.date), //<<<<<<<<< DEBUGGED (previously was "date: doc.date")
                 status: formatStatus(doc.status)
               }
             } catch(e) {

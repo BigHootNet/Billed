@@ -86,9 +86,15 @@ export default class {
   }
 
   handleEditTicket(e, bill, bills) {
-    this.counter = this.id === bill.id ? this.counter + 1 : 0;
+
+    console.log(this.counter)
+    //<<<<<<<<< DEBBUGED, previously was  "if (this.counter === undefined || this.id !== bill.id) this.counter = 0" 
+    // previously was if this.counter is undefined or this.id !== bill.id, then this.counter = 0
+    // now properly check if html element id matches bill id. If yes, then this.counter ++, if not, then this.counter = 0
+    this.counter = this.id === bill.id ? this.counter + 1 : 0; 
     if (this.id === undefined || this.id !== bill.id) this.id = bill.id
     if (this.counter % 2 === 0) {
+      console.log(this.counter)
       bills.forEach(b => {
         $(`#open-bill${b.id}`).css({ background: '#0D5AE5' })
       })
@@ -97,6 +103,7 @@ export default class {
       $('.vertical-navbar').css({ height: '150vh' })
       this.counter ++
     } else {
+      console.log(this.counter)
       $(`#open-bill${bill.id}`).css({ background: '#0D5AE5' })
 
       $('.dashboard-right-container div').html(`

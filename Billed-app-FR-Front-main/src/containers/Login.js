@@ -15,13 +15,9 @@ export default class Login {
     this.onNavigate = onNavigate;
     this.PREVIOUS_LOCATION = PREVIOUS_LOCATION;
     this.store = store;
-    const formEmployee = this.document.querySelector(
-      `form[data-testid="form-employee"]`
-    );
+    const formEmployee = this.document.querySelector(`form[data-testid="form-employee"]`);
     formEmployee.addEventListener("submit", this.handleSubmitEmployee);
-    const formAdmin = this.document.querySelector(
-      `form[data-testid="form-admin"]`
-    );
+    const formAdmin = this.document.querySelector(`form[data-testid="form-admin"]`);
     formAdmin.addEventListener("submit", this.handleSubmitAdmin);
   }
   handleSubmitEmployee = (e) => {
@@ -43,12 +39,11 @@ export default class Login {
   };
 
   handleSubmitAdmin = (e) => {
-    //debugger
     e.preventDefault();
     const user = {
       type: "Admin",
-      email: e.target.querySelector(`input[data-testid="admin-email-input"]`).value,
-      password: e.target.querySelector(`input[data-testid="admin-password-input"]`).value,
+      email: e.target.querySelector(`input[data-testid="admin-email-input"]`).value, //<<<<<<<<< DEBBUGED, previously was  "input[data-testid="employee-email-input"]"
+      password: e.target.querySelector(`input[data-testid="admin-password-input"]`).value, //<<<<<<<<< DEBBUGED, previously was  "input[data-testid="employee-password-input"]"
       status: "connected",
     };
     this.localStorage.setItem("user", JSON.stringify(user));
