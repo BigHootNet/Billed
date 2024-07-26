@@ -47,12 +47,13 @@ export default class Bills {
               console.log(e,'for',doc)
               return {
                 ...doc,
-                date: doc.date,
+                date: doc.date, // Keep the unformatted date if there's an error
                 status: formatStatus(doc.status)
               }
             }
           })
-          console.log('length', bills.length)
+          .sort((a, b) => new Date(b.date) - new Date(a.date)) // Sorting bills by date in descending order
+        console.log('length', bills.length)
         return bills
       })
     }
