@@ -42,7 +42,7 @@ describe("Given I am connected as an employee", () => {
         newBill.handleChangeFile(event);
 
         expect(window.alert).toHaveBeenCalledWith(
-          "Seules les images au format jpg, jpeg ou png sont autorisées."
+          "Seuls les formats jpg, jpeg et png sont autorisés."
         );
       });
     });
